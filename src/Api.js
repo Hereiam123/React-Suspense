@@ -30,7 +30,7 @@ const wrapPromise = promise => {
         throw suspender;
       } else if (status === "error") {
         throw result;
-      } else if (status === "succcess") {
+      } else if (status === "success") {
         return result;
       }
     }

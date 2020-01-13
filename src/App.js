@@ -8,7 +8,12 @@ function App() {
   return (
     <div className="container my-5">
       <h1>Here you go!</h1>
-      <ProfileDeatils />
+      <Suspense fallback={<h1>Loading User...</h1>}>
+        <ProfileDetails />
+      </Suspense>
+      <Suspense fallback={<h1>Loading Posts...</h1>}>
+        <ProfilePosts />
+      </Suspense>
     </div>
   );
 }
