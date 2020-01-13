@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import "./App.css";
 import { fetchData } from "./API";
+import spinner from "./spinner.gif";
 
 const resource = fetchData();
 
@@ -8,10 +9,10 @@ function App() {
   return (
     <div className="container my-5">
       <h1>Here you go!</h1>
-      <Suspense fallback={<h1>Loading User...</h1>}>
+      <Suspense fallback={<Spinner />}>
         <ProfileDetails />
       </Suspense>
-      <Suspense fallback={<h1>Loading Posts...</h1>}>
+      <Suspense fallback={<Spinner />}>
         <ProfilePosts />
       </Suspense>
     </div>
@@ -47,5 +48,13 @@ const ProfilePosts = () => {
     </ul>
   );
 };
+
+const Spinner = () => (
+  <img
+    src={spinner}
+    style={{ width: "200px", margin: "auto", display: "block" }}
+    alt="Loading..."
+  />
+);
 
 export default App;
